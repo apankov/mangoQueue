@@ -153,7 +153,7 @@ class Controller_Daemon extends Controller_CLI {
 		{
 			// Find first task that is not being executed
 			$task = Mango::factory('task')
-				->load(1, array('_id' => 1), array(), NULL, array('e' => array('$exists' => FALSE)));
+				->load(1, array('_id' => 1), NULL, array(), array('e' => array('$exists' => FALSE)));
 
 			if ( $task->loaded() && count($this->_pids) < $this->_config['max'])
 			{
