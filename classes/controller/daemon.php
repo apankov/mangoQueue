@@ -123,7 +123,7 @@ class Controller_Daemon extends Controller_CLI {
 		}
 		else
 		{
-			$msg = "MangoQueue pid file " . $this->_config['pid_path'] . " does not exist"
+			$msg = "MangoQueue pid file " . $this->_config['pid_path'] . " does not exist";
 			Kohana::$log->add(Kohana::ERROR, $msg);
 			echo $msg . PHP_EOL;
 		}
