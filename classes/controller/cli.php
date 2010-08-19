@@ -14,7 +14,7 @@ class Controller_CLI extends Controller {
 		{
 			// Deny none CLI access
 			throw new Kohana_Exception('The requested route does not exist: :route',
-				array(':route' => $this->request->route));
+				array(':route' => $this->request->uri));
 		}
 	}
 }
