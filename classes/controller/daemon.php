@@ -29,6 +29,7 @@ class Controller_Daemon extends Controller_CLI {
 			: 'default';
 
 		$this->_config = Kohana::config('daemon')->$config;
+		$this->_config['config_name'] = $config;
 
 		if ( empty($this->_config))
 		{
@@ -72,8 +73,8 @@ class Controller_Daemon extends Controller_CLI {
 		{
 			// Background process - run daemon
 
-			Kohana::$log->add(Kohana::DEBUG,strtr('Queue. Config :config loaded, max: :max, sleep: :sleep', array(
-				':config' => $config,
+			Kohana::$log->add(Kohana::DEBUG, strtr('Queue. Config :config loaded, max: :max, sleep: :sleep', array(
+				':config' => $this->_config['config_name'],
 				':max'    => $this->_config['max'],
 				':sleep'  => $this->_config['sleep']
 			)));
