@@ -188,7 +188,9 @@ class Controller_Daemon extends Controller_CLI {
 					try
 					{
 						// Child - Execute task
+						$_POST = $task->args->as_array();
 						Request::factory( Route::get( $task->route )->uri( $task->uri->as_array() ) )->execute();
+						$_POST = array();
 					}
 					catch(Exception $e)
 					{
